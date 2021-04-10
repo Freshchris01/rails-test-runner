@@ -41,6 +41,10 @@ export default class Runner {
   }
 
   runTestAtLine(): void {
+    if(window.activeTextEditor.document.isDirty){
+window.activeTextEditor.document.save();
+    }
+
     const fileName = this.retrieveFileName(true);
     this.runTests(fileName);
   }
@@ -100,5 +104,9 @@ export default class Runner {
 
   shouldClearTerminal(): boolean {
     return this.config.get<boolean>('clearTerminal');
+  }
+
+  shouldSaveFile(): boolean {
+    return this.config.get<boolean>('saveFile');
   }
 }

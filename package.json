@@ -2,7 +2,7 @@
   "name": "rails-test-runner",
   "displayName": "Rails Test Runner",
   "description": "Easily run your rails tests from within Visual Studio Code (vscode)",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "publisher": "davidpallinder",
   "repository": "https://github.com/Pallinder/rails-test-runner",
   "icon": "images/rails.png",
@@ -27,25 +27,32 @@
   "contributes": {
     "configuration": {
       "type": "object",
-      "title": "Rails Test Runner Configuration",
+      "title": "Rails Test Runner",
       "properties": {
         "railsTestRunner.rspecCommand": {
+          "type": "string",
           "default": "bundle exec rspec",
-          "description": "Specifies the command to use when running rspec tests",
-          "type": ["string"]
+          "description": "Specifies the command to use when running rspec tests"
         },
         "railsTestRunner.focusTerminal": {
+          "type": "boolean",
           "default": true,
-          "description": "Should the terminal be focused on each run?",
-          "type": ["boolean"]
+          "description": "Should the terminal be focused on each run?"
         },
         "railsTestRunner.clearTerminal": {
+          "type": "boolean",
           "default": true,
           "description": "Should the terminal be cleared before each run?"
         },
         "railsTestRunner.rspec.failFast": {
+          "type": "boolean",
           "default": false,
           "description": "Should rspec stop after encountering a failed test?"
+        },
+        "railsTestRunner.rspec.saveFile":{
+          "type": "boolean",
+          "default": false,
+          "description": "Should rspec save the current file before the run?"
         }
       }
     },
@@ -110,13 +117,13 @@
     "test": "npm run compile && node ./node_modules/vscode/bin/test"
   },
   "devDependencies": {
-    "typescript": "^2.6.1",
-    "vscode": "^1.1.6",
-    "@types/node": "^7.0.43",
-    "@types/mocha": "^2.2.42",
+    "@types/mocha": "^2.2.48",
+    "@types/node": "^7.10.14",
     "expect.js": "^0.3.1",
-    "prettier": "^1.9.2",
-    "tslint": "^5.8.0",
-    "tslint-config-airbnb": "^5.4.2"
+    "prettier": "^1.19.1",
+    "tslint": "^5.20.1",
+    "tslint-config-airbnb": "^5.11.2",
+    "typescript": "^4.2.4",
+    "vscode": "^1.1.37"
   }
 }
